@@ -99,3 +99,18 @@ All colors MUST be HSL.
     overflow: hidden;
   }
 }
+
+@layer utilities {
+  @keyframes scrollSkills {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-33.333%);
+    }
+  }
+  
+  .animate-scroll-skills {
+    animation: scrollSkills 25s linear infinite;
+  }
+}

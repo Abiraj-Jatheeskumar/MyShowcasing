@@ -15,4 +15,7 @@ export default defineConfig({
     },
   },
   assetsInclude: ["**/*.JPG", "**/*.jpg", "**/*.PNG", "**/*.png", "**/*.JPEG", "**/*.jpeg"],
+  optimizeDeps: {
+    include: ["framer-motion", "react-hook-form", "@hookform/resolvers"],
+  },
 });

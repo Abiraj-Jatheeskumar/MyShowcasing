@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Instagram, Github, Linkedin, Youtube, Sparkles, ArrowRight, Code2, Camera, Film, Palette, ChevronLeft, ChevronRight } from "lucide-react";
+import { Instagram, Github, Linkedin, Facebook, Rocket, ArrowRight, Code2, Camera, Film, Palette, ChevronLeft, ChevronRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import useEmblaCarousel from "embla-carousel-react";
 
@@ -37,118 +37,122 @@ const Hero = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20 md:pt-22 lg:pt-24 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
       {/* Background Slider */}
       <BackgroundSlider />
       
-      {/* Enhanced Text Readability Overlays */}
-      <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/80 via-background/60 to-background/50 pointer-events-none"></div>
-      <div className="absolute inset-0 z-10 bg-gradient-hero animate-gradient-shift bg-[length:200%_200%] opacity-40 pointer-events-none"></div>
+      {/* Mobile Role Indicator - Shows Current Role - Positioned Below Header */}
+      <div className="absolute top-16 sm:top-20 md:top-24 lg:top-28 left-1/2 -translate-x-1/2 z-30 lg:hidden">
+        <MobileRoleIndicator />
+      </div>
       
-      {/* Refined Animated Gradient Orbs */}
-      <div className="absolute top-20 left-10 w-[600px] h-[600px] bg-primary/12 rounded-full blur-[150px] animate-float z-10 opacity-60"></div>
-      <div className="absolute bottom-20 right-10 w-[700px] h-[700px] bg-secondary/10 rounded-full blur-[160px] animate-float z-10 opacity-50" style={{ animationDelay: "2s" }}></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-accent/10 rounded-full blur-[130px] animate-float z-10 opacity-40" style={{ animationDelay: "4s" }}></div>
-      <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[140px] animate-float z-10 opacity-50" style={{ animationDelay: "1s" }}></div>
+      {/* Enhanced Text Readability Overlays - Less on Mobile to Show Slider */}
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-background/60 via-background/40 to-background/30 sm:from-background/70 sm:via-background/55 sm:to-background/45 md:from-background/80 md:via-background/60 md:to-background/50 pointer-events-none transition-opacity duration-700"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-hero animate-gradient-shift bg-[length:200%_200%] opacity-20 sm:opacity-30 md:opacity-40 pointer-events-none transition-opacity duration-700"></div>
+      
+      {/* Refined Animated Gradient Orbs - Mobile Responsive */}
+      <div className="absolute top-20 left-5 sm:left-10 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] xl:w-[600px] xl:h-[600px] bg-primary/12 rounded-full blur-[80px] sm:blur-[100px] md:blur-[120px] lg:blur-[150px] animate-float z-10 opacity-40 sm:opacity-50 md:opacity-60"></div>
+      <div className="absolute bottom-20 right-5 sm:right-10 w-[220px] h-[220px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[550px] xl:w-[700px] xl:h-[700px] bg-secondary/10 rounded-full blur-[90px] sm:blur-[110px] md:blur-[130px] lg:blur-[160px] animate-float z-10 opacity-30 sm:opacity-40 md:opacity-50" style={{ animationDelay: "2s" }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180px] h-[180px] sm:w-[280px] sm:h-[280px] md:w-[350px] md:h-[350px] lg:w-[450px] lg:h-[450px] xl:w-[550px] xl:h-[550px] bg-accent/10 rounded-full blur-[70px] sm:blur-[90px] md:blur-[110px] lg:blur-[130px] animate-float z-10 opacity-25 sm:opacity-35 md:opacity-40" style={{ animationDelay: "4s" }}></div>
+      <div className="absolute top-1/4 right-1/4 w-[160px] h-[160px] sm:w-[250px] sm:h-[250px] md:w-[320px] md:h-[320px] lg:w-[400px] lg:h-[400px] xl:w-[500px] xl:h-[500px] bg-primary/10 rounded-full blur-[75px] sm:blur-[95px] md:blur-[115px] lg:blur-[140px] animate-float z-10 opacity-30 sm:opacity-40 md:opacity-50" style={{ animationDelay: "1s" }}></div>
 
-      {/* Content */}
-      <div className="relative z-20 container mx-auto px-6 text-center">
+      {/* Content - Mobile Responsive - Premium Design */}
+      <div className="relative z-20 container mx-auto px-4 sm:px-5 md:px-6 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Enhanced Premium Badge */}
-          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 mb-8 bg-card/70 backdrop-blur-xl border border-primary/50 rounded-full animate-fade-in shadow-2xl group hover:border-primary/80 transition-all duration-500 hover:scale-105">
+          {/* Enhanced Premium Badge - Mobile Responsive */}
+          <div className="inline-flex items-center gap-2 sm:gap-2.5 md:gap-3 px-3 sm:px-4 md:px-5 lg:px-6 py-2 sm:py-2.5 md:py-3 lg:py-3.5 mb-4 sm:mb-5 md:mb-7 lg:mb-9 bg-card/80 backdrop-blur-xl border-2 border-primary/60 rounded-full animate-fade-in shadow-2xl group hover:border-primary/90 transition-all duration-500 hover:scale-105">
             <div className="relative">
-              <Sparkles className="w-4 h-4 text-primary animate-pulse" />
+              <Rocket className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary animate-pulse" />
               <div className="absolute inset-0 bg-primary/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <span className="text-xs md:text-sm font-bold text-foreground tracking-wide" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
+            <span className="text-xs sm:text-xs md:text-sm lg:text-base font-bold text-foreground tracking-wide" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>
               Multi-Creative Professional
             </span>
             <div className="relative">
-              <Sparkles className="w-4 h-4 text-secondary animate-pulse" style={{ animationDelay: "0.5s" }} />
+              <Rocket className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-secondary animate-pulse" style={{ animationDelay: "0.5s" }} />
               <div className="absolute inset-0 bg-secondary/30 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
           </div>
           
-          {/* Enhanced Main Heading */}
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6 leading-[1.1]">
-            <span className="block mb-2 pb-2 animate-shimmer bg-[length:200%_auto]" style={{ 
+          {/* Enhanced Main Heading - Mobile Responsive */}
+          <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-black mb-4 sm:mb-5 md:mb-6 lg:mb-7 leading-[1.1] sm:leading-[1.15] px-2 sm:px-3">
+            <span className="block mb-0.5 sm:mb-1 md:mb-2 pb-0.5 sm:pb-1 md:pb-2 animate-shimmer bg-[length:200%_auto]" style={{ 
               background: 'linear-gradient(135deg, #3B82F6, #06B6D4, #8B5CF6, #3B82F6)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              filter: 'drop-shadow(0 4px 12px rgba(59, 130, 246, 0.4))',
+              filter: 'drop-shadow(0 2px 8px rgba(59, 130, 246, 0.4))',
               animation: 'shimmer 3s ease-in-out infinite'
             }}>
               👋 Hi, I'm
             </span>
-            <span className="block mt-2 pb-2 animate-shimmer bg-[length:200%_auto]" style={{ 
+            <span className="block mt-0.5 sm:mt-1 md:mt-2 pb-0.5 sm:pb-1 md:pb-2 animate-shimmer bg-[length:200%_auto]" style={{ 
               animationDelay: "0.3s",
               background: 'linear-gradient(135deg, #F97316, #EC4899, #F59E0B, #F97316)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-              filter: 'drop-shadow(0 4px 12px rgba(249, 115, 22, 0.4))',
+              filter: 'drop-shadow(0 2px 8px rgba(249, 115, 22, 0.4))',
               animation: 'shimmer 3s ease-in-out infinite 0.3s'
             }}>
               Jatheeskumar Abiraj
             </span>
           </h1>
           
-          {/* Enhanced Tagline with Better Typography */}
-          <div className="max-w-3xl mx-auto mb-10 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
-            <p className="text-base md:text-lg lg:text-xl text-foreground/95 leading-relaxed text-center font-medium">
+          {/* Enhanced Tagline - Mobile Responsive */}
+          <div className="max-w-3xl mx-auto mb-5 sm:mb-6 md:mb-7 lg:mb-9 xl:mb-11 animate-fade-in-up px-3 sm:px-4 md:px-6" style={{ animationDelay: "0.4s" }}>
+            <p className="text-sm sm:text-base text-foreground/95 leading-relaxed text-center font-medium">
               Crafting{' '}
               <span className="relative inline-block font-bold text-primary group cursor-pointer">
-                <span className="absolute -inset-1 bg-primary/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute -inset-0.5 sm:-inset-1 bg-primary/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative">digital experiences</span>
               </span>
               {' '}that merge{' '}
               <span className="relative inline-block font-bold text-secondary group cursor-pointer">
-                <span className="absolute -inset-1 bg-secondary/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute -inset-0.5 sm:-inset-1 bg-secondary/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative">creativity</span>
               </span>
               {' '}with{' '}
               <span className="relative inline-block font-bold text-accent group cursor-pointer">
-                <span className="absolute -inset-1 bg-accent/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                <span className="absolute -inset-0.5 sm:-inset-1 bg-accent/20 rounded-lg blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                 <span className="relative">cutting-edge technology</span>
               </span>
             </p>
           </div>
 
-          {/* Enhanced CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mb-10 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
+          {/* Enhanced CTA Buttons - Mobile Responsive */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 lg:gap-6 justify-center mb-5 sm:mb-6 md:mb-7 lg:mb-9 xl:mb-11 animate-fade-in-up px-3 sm:px-4 md:px-6" style={{ animationDelay: "0.5s" }}>
             <Button 
               size="lg"
-              className="group relative bg-gradient-primary hover:scale-110 text-primary-foreground shadow-glow-primary font-heading text-base md:text-lg px-10 py-7 rounded-full transition-all duration-500 hover:shadow-glow-secondary overflow-hidden border-2 border-transparent hover:border-primary/50"
+              className="group relative bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-primary-foreground shadow-lg hover:shadow-xl font-semibold text-sm sm:text-base px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-500 overflow-hidden w-full sm:w-auto"
               onClick={() => scrollToSection("portfolio")}
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <span className="relative z-10 flex items-center justify-center gap-1.5 sm:gap-2">
                 Explore My Work
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-2 transition-transform duration-300" />
               </span>
-              <div className="absolute inset-0 bg-gradient-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </Button>
             <Button 
               size="lg"
               variant="outline"
-              className="group border-2 border-primary/60 text-primary hover:bg-primary hover:text-primary-foreground font-heading text-base md:text-lg px-10 py-7 rounded-full transition-all duration-500 hover:scale-110 hover:shadow-glow-primary backdrop-blur-xl bg-card/40 hover:border-primary"
+              className="group border-2 border-primary/70 text-primary hover:bg-primary hover:text-primary-foreground font-semibold text-sm sm:text-base px-6 sm:px-7 md:px-8 py-2.5 sm:py-3 rounded-lg sm:rounded-xl transition-all duration-500 hover:scale-105 hover:shadow-lg backdrop-blur-xl bg-card/50 hover:border-primary w-full sm:w-auto"
               onClick={() => scrollToSection("contact")}
             >
-              <span className="flex items-center gap-3">
+              <span className="flex items-center justify-center gap-1.5 sm:gap-2">
                 Let's Create Together
-                <Sparkles className="w-5 h-5 group-hover:rotate-180 transition-transform duration-500" />
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-500" />
               </span>
             </Button>
           </div>
 
-          {/* Enhanced Social Icons */}
-          <div className="flex gap-4 justify-center animate-fade-in-up" style={{ animationDelay: "0.6s" }}>
+          {/* Enhanced Social Icons - Mobile Responsive */}
+          <div className="flex gap-2.5 sm:gap-3 md:gap-4 lg:gap-5 justify-center animate-fade-in-up px-3 sm:px-4" style={{ animationDelay: "0.6s" }}>
             {[
-              { icon: Instagram, href: "https://instagram.com", color: "text-primary", label: "Instagram" },
-              { icon: Github, href: "https://github.com", color: "text-secondary", label: "GitHub" },
-              { icon: Linkedin, href: "https://linkedin.com", color: "text-primary", label: "LinkedIn" },
-              { icon: Youtube, href: "https://youtube.com", color: "text-accent", label: "YouTube" },
+              { icon: Instagram, href: "https://www.instagram.com/jatheeskumar_abiraj?igsh=cHBpY294c2ZtaXhv&utm_source=qr", color: "text-primary", label: "Instagram" },
+              { icon: Linkedin, href: "https://www.linkedin.com/in/jatheeskumar-abiraj-182901278/", color: "text-primary", label: "LinkedIn" },
+              { icon: Facebook, href: "https://www.facebook.com/abiraj.jatheeskumar?mibextid=wwXIfr", color: "text-accent", label: "Facebook" },
+              { icon: Github, href: "https://github.com/Abiraj-Jatheeskumar", color: "text-secondary", label: "GitHub" },
             ].map((social, index) => {
               const Icon = social.icon;
               return (
@@ -158,9 +162,9 @@ const Hero = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                   aria-label={social.label}
-                  className="group relative w-14 h-14 rounded-2xl bg-card/50 backdrop-blur-xl border-2 border-primary/40 flex items-center justify-center transition-all duration-500 hover:scale-125 hover:shadow-glow-primary hover:border-primary hover:bg-gradient-primary hover:-translate-y-1"
+                  className="group relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-xl sm:rounded-2xl bg-card/60 backdrop-blur-xl border-2 border-primary/50 flex items-center justify-center transition-all duration-500 hover:scale-110 sm:hover:scale-125 hover:shadow-glow-primary hover:border-primary/80 hover:bg-gradient-primary hover:-translate-y-1 shadow-lg"
                 >
-                  <Icon className={`w-6 h-6 ${social.color} group-hover:text-primary-foreground transition-colors duration-300 z-10 relative`} />
+                  <Icon className={`w-5 h-5 sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 ${social.color} group-hover:text-primary-foreground transition-colors duration-300 z-10 relative`} />
                   <div className="absolute inset-0 rounded-2xl bg-gradient-primary opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500"></div>
                   <div className="absolute inset-0 rounded-2xl bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </a>
@@ -174,13 +178,61 @@ const Hero = () => {
   );
 };
 
+// Mobile Role Indicator Component
+const MobileRoleIndicator = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const roles = [
+    { icon: Code2, label: "Developer", gradient: "from-cyan-400 to-blue-600" },
+    { icon: Camera, label: "Photographer", gradient: "from-orange-500 to-amber-500" },
+    { icon: Film, label: "Video Editor", gradient: "from-pink-500 to-purple-600" },
+    { icon: Palette, label: "Designer", gradient: "from-cyan-500 to-teal-500" },
+  ];
+
+  // Listen for slide changes via custom event
+  useEffect(() => {
+    const handleSlideChange = (e: CustomEvent) => {
+      setSelectedIndex(e.detail.index);
+    };
+    
+    window.addEventListener('hero-slide-change' as any, handleSlideChange as EventListener);
+    return () => {
+      window.removeEventListener('hero-slide-change' as any, handleSlideChange as EventListener);
+    };
+  }, []);
+
+  const currentRole = roles[selectedIndex];
+  const IconComponent = currentRole.icon;
+
+  return (
+    <div className="flex items-center gap-3 px-4 py-2.5 bg-card/90 backdrop-blur-xl border-2 border-primary/50 rounded-full shadow-2xl animate-fade-in transition-all duration-500">
+      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${currentRole.gradient} flex items-center justify-center shadow-lg transition-all duration-500`}>
+        <IconComponent className="w-4 h-4 text-white" />
+      </div>
+      <span className="text-sm font-bold text-foreground transition-all duration-500">{currentRole.label}</span>
+      <div className="flex gap-1">
+        {roles.map((role, idx) => (
+          <div
+            key={idx}
+            className={`h-1.5 rounded-full transition-all duration-500 ${
+              idx === selectedIndex 
+                ? `bg-gradient-to-r ${role.gradient} w-4 shadow-glow-primary` 
+                : 'w-1.5 bg-muted-foreground/40'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // Background Slider Component - Role-Based
 const BackgroundSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
     loop: true, 
     align: "start",
     slidesToScroll: 1,
-    duration: 25,
+    duration: 30,
     containScroll: 'trimSnaps',
   });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -231,7 +283,10 @@ const BackgroundSlider = () => {
     setScrollSnaps(emblaApi.scrollSnapList());
     
     const onSelect = () => {
-      setSelectedIndex(emblaApi.selectedScrollSnap());
+      const newIndex = emblaApi.selectedScrollSnap();
+      setSelectedIndex(newIndex);
+      // Dispatch custom event for mobile indicator
+      window.dispatchEvent(new CustomEvent('hero-slide-change', { detail: { index: newIndex } }));
     };
     
     emblaApi.on("select", onSelect);
@@ -246,55 +301,103 @@ const BackgroundSlider = () => {
   const scrollNext = () => emblaApi?.scrollNext();
   const scrollTo = (index: number) => emblaApi?.scrollTo(index);
 
-  // Auto-play functionality
+  // Auto-play functionality - Faster on mobile for better visibility
   useEffect(() => {
     if (!emblaApi) return;
     
+    const isMobile = window.innerWidth < 768;
+    const interval = isMobile ? 4000 : 5000; // 4s on mobile, 5s on desktop
+    
     const autoplay = setInterval(() => {
       emblaApi.scrollNext();
-    }, 5000);
+    }, interval);
 
     return () => clearInterval(autoplay);
   }, [emblaApi]);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
+    <div className="absolute inset-0 z-0 overflow-hidden" data-embla-container>
       {/* Carousel Container - Full Screen Background */}
       <div className="w-full h-full" ref={emblaRef}>
         <div className="flex h-full">
           {portfolioItems.map((item, index) => {
+            const isActive = index === selectedIndex;
             return (
               <div
                 key={index}
-                className="flex-[0_0_100%] min-w-0 h-full relative"
-                style={{ flexShrink: 0 }}
+                className="flex-[0_0_100%] min-w-0 h-full relative transition-all duration-1000 ease-in-out"
+                style={{ 
+                  flexShrink: 0, 
+                  opacity: isActive ? 1 : 0.15,
+                  transform: isActive ? 'scale(1)' : 'scale(1.05)',
+                  zIndex: isActive ? 1 : 0
+                }}
               >
-                {/* Full Screen Background Image - Single Image Only */}
+                {/* Full Screen Background Image - Enhanced for Mobile */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden">
                   <img
                     src={item.image}
                     alt={item.role}
-                    className="w-full h-full object-cover transition-transform duration-[5000ms] ease-in-out scale-105 hover:scale-110"
+                    className={`w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+                      isActive ? 'scale-100 sm:scale-105' : 'scale-110 sm:scale-115'
+                    }`}
                     loading="eager"
                     style={{ 
-                      filter: 'brightness(0.7) contrast(1.3) saturate(1.2)',
+                      filter: isActive 
+                        ? 'brightness(0.65) contrast(1.4) saturate(1.3)' // More visible on mobile
+                        : 'brightness(0.5) contrast(1.2) saturate(1.1) grayscale(0.2)',
                       objectPosition: 'center',
                       width: '100%',
                       height: '100%'
                     }}
                   />
                   
-                  {/* Enhanced Dark Overlay for Text Readability */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/70 to-background/55 transition-opacity duration-500"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-background/75 via-transparent to-background/75"></div>
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-15 transition-opacity duration-500`}></div>
+                  {/* Enhanced Dark Overlay - Less on Mobile */}
+                  <div className={`absolute inset-0 bg-gradient-to-b transition-all duration-1000 ${
+                    isActive 
+                      ? 'from-background/70 via-background/50 to-background/35 sm:from-background/75 sm:via-background/60 sm:to-background/45 md:from-background/85 md:via-background/70 md:to-background/55'
+                      : 'from-background/90 via-background/85 to-background/80'
+                  }`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-r transition-all duration-1000 ${
+                    isActive
+                      ? 'from-background/60 via-transparent to-background/60 sm:from-background/70 sm:via-transparent sm:to-background/70'
+                      : 'from-background/85 via-background/80 to-background/85'
+                  }`}></div>
                   
-                  {/* Subtle Animated Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 animate-pulse`} style={{ animationDuration: '4s' }}></div>
+                  {/* Role-Based Gradient Overlay - More Visible on Mobile */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} transition-all duration-1000 ${
+                    isActive 
+                      ? 'opacity-20 sm:opacity-15 md:opacity-12' 
+                      : 'opacity-5'
+                  }`}></div>
+                  
+                  {/* Animated Pulse Effect - More Pronounced on Mobile */}
+                  <div 
+                    className={`absolute inset-0 bg-gradient-to-br ${item.gradient} transition-opacity duration-1000 ${
+                      isActive ? 'opacity-10 animate-pulse' : 'opacity-0'
+                    }`} 
+                    style={{ animationDuration: '3s' }}
+                  ></div>
                 </div>
               </div>
             );
           })}
+        </div>
+      </div>
+      
+      {/* Mobile Progress Indicator - Bottom Center - More Visible */}
+      <div className="absolute bottom-12 sm:bottom-16 left-1/2 -translate-x-1/2 z-30 lg:hidden">
+        <div className="flex items-center gap-2.5 px-5 py-2.5 bg-card/90 backdrop-blur-xl border-2 border-primary/50 rounded-full shadow-2xl">
+          {portfolioItems.map((item, idx) => (
+            <div
+              key={idx}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                idx === selectedIndex 
+                  ? `w-10 bg-gradient-to-r ${item.gradient} shadow-glow-primary` 
+                  : 'w-2 bg-muted-foreground/50'
+              }`}
+            />
+          ))}
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import { Palette, Code, Camera, Film, Sparkles } from "lucide-react";
+import { Palette, Code, Camera, Film, Briefcase } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const Skills = () => {
@@ -38,15 +38,19 @@ const Skills = () => {
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-20 animate-fade-in">
-          <div className="inline-flex items-center justify-center mb-6">
-            <Sparkles className="w-10 h-10 text-primary mr-4 animate-glow-pulse" />
-            <h2 className="font-heading text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-sunset bg-clip-text text-transparent pb-2">
-              What I Do
+          <div className="inline-flex items-center gap-3 mb-4">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary"></div>
+            <Briefcase className="w-5 h-5 text-primary" />
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+                What I Do
+              </span>
             </h2>
-            <Sparkles className="w-10 h-10 text-secondary ml-4 animate-glow-pulse" style={{ animationDelay: "1.5s" }} />
+            <Briefcase className="w-5 h-5 text-secondary" />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-secondary"></div>
           </div>
-          <p className="text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed pb-2">
-            A perfect blend of <span className="text-primary font-bold">creative design</span> and <span className="text-secondary font-bold">technical expertise</span> to bring your vision to life
+          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
+            A perfect blend of creative design and technical expertise to bring your vision to life
           </p>
         </div>
 
@@ -66,11 +70,11 @@ const Skills = () => {
                   <div className={`relative w-24 h-24 rounded-3xl bg-gradient-to-br ${skill.gradient} flex items-center justify-center mb-8 group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 shadow-2xl`}>
                     <Icon className="w-12 h-12 text-white relative z-10" />
                     <div className={`absolute inset-0 bg-gradient-to-br ${skill.gradient} rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                  </div>
-                  <h3 className="font-heading text-2xl font-black mb-4 text-foreground group-hover:bg-gradient-primary group-hover:bg-clip-text group-hover:text-transparent transition-all duration-500 leading-tight pb-1">
+                </div>
+                  <h3 className="font-heading text-lg font-bold mb-3 text-foreground group-hover:text-primary transition-colors duration-300">
                     {skill.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed text-lg group-hover:text-foreground transition-colors pb-2">
+                  <p className="text-base text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors">
                     {skill.description}
                   </p>
                 </div>
