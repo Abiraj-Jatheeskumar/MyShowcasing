@@ -139,9 +139,9 @@ const Services = () => {
           </motion.div>
         </motion.div>
 
-        {/* Enhanced Services Grid - Mobile First Responsive */}
+        {/* Enhanced Services Grid - Mobile First Responsive - Better Alignment */}
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 lg:gap-8 mb-8 sm:mb-10 md:mb-12 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -177,10 +177,10 @@ const Services = () => {
                     transition={{ duration: 0.5 }}
                   ></motion.div>
                   
-                  <div className="relative z-10 flex flex-col h-full">
-                    {/* Icon - Enhanced with Animation */}
+                  <div className="relative z-10 flex flex-col h-full text-center">
+                    {/* Icon - Enhanced with Animation - Centered */}
                     <motion.div 
-                      className="mb-4 sm:mb-5 md:mb-6"
+                      className="mb-4 sm:mb-5 md:mb-6 flex justify-center"
                       variants={iconVariants}
                       initial="hidden"
                       whileInView="visible"
@@ -188,7 +188,7 @@ const Services = () => {
                       custom={index}
                     >
                       <motion.div 
-                        className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
+                        className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 mx-auto`}
                         whileHover={{ rotate: [0, -10, 10, -10, 0] }}
                         transition={{ duration: 0.6 }}
                       >
@@ -198,20 +198,20 @@ const Services = () => {
                       </motion.div>
                     </motion.div>
                     
-                    {/* Title - Enhanced */}
+                    {/* Title - Enhanced - Centered */}
                     <motion.h3 
-                      className="font-heading text-base sm:text-lg font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors duration-300"
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
+                      className="font-heading text-base sm:text-lg md:text-xl font-bold mb-2 sm:mb-3 text-foreground group-hover:text-primary transition-colors duration-300 text-center"
+                      initial={{ opacity: 0, y: -20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
                     >
                       {service.title}
                     </motion.h3>
                     
-                    {/* Description - Enhanced */}
+                    {/* Description - Enhanced - Centered */}
                     <motion.p 
-                      className="text-xs sm:text-sm text-muted-foreground leading-relaxed mb-4 sm:mb-5 md:mb-6 group-hover:text-foreground/90 transition-colors flex-grow"
+                      className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed mb-4 sm:mb-5 md:mb-6 group-hover:text-foreground/90 transition-colors flex-grow text-center px-1"
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
@@ -220,9 +220,9 @@ const Services = () => {
                       {service.description}
                     </motion.p>
                     
-                    {/* Features List - Mobile Responsive */}
+                    {/* Features List - Mobile Responsive - Centered */}
                     <motion.div 
-                      className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5 md:mb-6"
+                      className="space-y-1.5 sm:space-y-2 mb-4 sm:mb-5 md:mb-6 flex flex-col items-center"
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
                       viewport={{ once: true }}
@@ -231,19 +231,19 @@ const Services = () => {
                       {service.features.map((feature, idx) => (
                         <motion.div 
                           key={idx} 
-                          className="flex items-center gap-2 text-xs sm:text-xs text-muted-foreground group-hover:text-foreground/80 transition-colors"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          className="flex items-center justify-center gap-2 text-xs sm:text-sm text-muted-foreground group-hover:text-foreground/80 transition-colors"
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.3, delay: index * 0.1 + idx * 0.05 + 0.5 }}
                         >
-                          <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
-                          <span className="font-medium">{feature}</span>
+                          <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
+                          <span className="font-medium text-center">{feature}</span>
                         </motion.div>
                       ))}
                     </motion.div>
                     
-                    {/* Stats Badge - Mobile Responsive */}
+                    {/* Stats Badge - Mobile Responsive - Centered */}
                     <motion.div 
                       className="mt-auto pt-3 sm:pt-4 border-t border-border/30 group-hover:border-primary/30 transition-colors"
                       initial={{ opacity: 0, y: 10 }}
@@ -251,18 +251,16 @@ const Services = () => {
                       viewport={{ once: true }}
                       transition={{ duration: 0.5, delay: index * 0.1 + 0.6 }}
                     >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-1.5 sm:gap-2">
-                          <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
-                          <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
-                            {service.stats}
-                          </span>
-                        </div>
+                      <div className="flex items-center justify-center gap-2 sm:gap-3">
+                        <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary opacity-70 group-hover:opacity-100 transition-opacity" />
+                        <span className="text-xs sm:text-sm font-semibold text-muted-foreground group-hover:text-foreground transition-colors">
+                          {service.stats}
+                        </span>
                         <motion.div
                           whileHover={{ x: 4 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-muted-foreground group-hover:text-primary transition-all duration-300" />
+                          <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground group-hover:text-primary transition-all duration-300" />
                         </motion.div>
                       </div>
                     </motion.div>

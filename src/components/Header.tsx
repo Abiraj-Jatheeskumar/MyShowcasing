@@ -287,11 +287,11 @@ const Header = () => {
               onClick={() => scrollToSection("hero")}
               className="group flex items-center gap-2 sm:gap-2.5 hover:scale-105 transition-all duration-500 ease-out relative z-10"
             >
-            {/* Professional Logo - Reduced Size */}
-            <div className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-[72px] lg:h-[72px]">
+            {/* Professional Logo - Slightly Larger Size - Enhanced Mobile */}
+            <div className="relative w-16 h-16 sm:w-[72px] sm:h-[72px] md:w-20 md:h-20 lg:w-24 lg:h-24">
               {/* Subtle outer glow - Only visible on hover */}
               <div 
-                className="absolute -inset-1.5 sm:-inset-2 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
+                className="absolute -inset-1.5 sm:-inset-2 md:-inset-2.5 lg:-inset-3 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 pointer-events-none"
                 style={{
                   background: 'conic-gradient(from 0deg, rgba(251, 191, 36, 0.6), rgba(217, 119, 6, 0.5), rgba(251, 191, 36, 0.6))',
                   animation: 'rotateGradient 12s linear infinite',
@@ -418,10 +418,23 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Menu - Full Screen Overlay - Premium Mobile Design */}
+        {/* Mobile Menu - Full Screen Overlay - Premium Mobile Design with Ultra Dark Overlay */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background/98 backdrop-blur-3xl z-40 animate-fade-in border-t border-primary/20">
-            <nav className="container mx-auto px-5 sm:px-6 py-8 sm:py-10 flex flex-col gap-3 sm:gap-4">
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 z-40 animate-fade-in">
+            {/* Multiple Dark Overlay Layers for Maximum Visibility - Ultra Dark */}
+            <div className="absolute inset-0 bg-black/98 backdrop-blur-3xl"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/99 via-black/98 to-black/99"></div>
+            <div className="absolute inset-0 bg-black/95"></div>
+            <div className="absolute inset-0 bg-black/90"></div>
+            
+            {/* Subtle Gradient Accent - Very Subtle */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-20"></div>
+            
+            {/* Border Top - More Visible */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/70 to-transparent"></div>
+            
+            {/* Navigation Content */}
+            <nav className="relative container mx-auto px-5 sm:px-6 py-8 sm:py-10 flex flex-col gap-3 sm:gap-4 z-10">
               {navItems.map((item, index) => {
                 const Icon = item.icon;
                 const isActive = activeSection === item.id || (item.id === "hero" && activeSection === "");
@@ -431,47 +444,88 @@ const Header = () => {
                     variant="ghost"
                     onClick={() => scrollToSection(item.id)}
                     className={cn(
-                      "group relative w-full justify-start px-5 sm:px-6 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-left transition-all duration-300 animate-fade-in-up backdrop-blur-sm",
+                      "group relative w-full justify-start px-5 sm:px-6 py-4 sm:py-5 rounded-xl sm:rounded-2xl text-left transition-all duration-300 animate-fade-in-up overflow-hidden",
                       isActive
-                        ? "text-primary bg-gradient-primary/20 shadow-glow-soft border-2 border-primary/50 shadow-lg"
-                        : "text-muted-foreground hover:text-primary hover:bg-primary/10 border-2 border-primary/20 hover:border-primary/40 hover:shadow-md"
+                        ? "text-primary-foreground shadow-glow-soft border-2 border-primary/80 shadow-2xl"
+                        : "text-white/95 hover:text-primary-foreground border-2 border-white/20 hover:border-primary/70 hover:shadow-xl"
                     )}
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="flex items-center gap-4 sm:gap-5 w-full">
+                    {/* Dark Background Layer - Ultra Dark */}
+                    <div className={cn(
+                      "absolute inset-0 rounded-xl sm:rounded-2xl transition-all duration-300",
+                      isActive
+                        ? "bg-gradient-primary opacity-100"
+                        : "bg-black/80 backdrop-blur-xl border border-primary/30 opacity-100 group-hover:bg-black/85"
+                    )}></div>
+                    
+                    {/* Additional Dark Overlay for Maximum Visibility */}
+                    <div className={cn(
+                      "absolute inset-0 rounded-xl sm:rounded-2xl transition-all duration-300",
+                      isActive
+                        ? "bg-primary/30 opacity-100"
+                        : "bg-black/60 opacity-100 group-hover:bg-black/70"
+                    )}></div>
+                    
+                    {/* Extra Dark Layer */}
+                    <div className={cn(
+                      "absolute inset-0 rounded-xl sm:rounded-2xl transition-all duration-300",
+                      isActive
+                        ? "opacity-0"
+                        : "bg-black/40 opacity-100"
+                    )}></div>
+                    
+                    {/* Subtle Glow */}
+                    <div className={cn(
+                      "absolute -inset-0.5 rounded-xl sm:rounded-2xl blur-sm transition-all duration-300 opacity-0 group-hover:opacity-100",
+                      isActive
+                        ? "bg-primary/40 opacity-100"
+                        : "bg-primary/20"
+                    )}></div>
+                    
+                    {/* Content */}
+                    <div className="relative flex items-center gap-4 sm:gap-5 w-full z-10">
                       <div className={cn(
-                        "w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0 shadow-lg",
+                        "w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center transition-all duration-300 flex-shrink-0 shadow-lg relative",
                         isActive
-                          ? "bg-gradient-primary text-primary-foreground shadow-glow-primary scale-110"
-                          : "bg-card/60 backdrop-blur-md text-primary group-hover:bg-primary/20 group-hover:scale-105 border border-primary/30"
+                          ? "bg-primary-foreground/30 backdrop-blur-md text-primary-foreground shadow-glow-primary scale-110 border border-primary-foreground/40"
+                          : "bg-black/70 backdrop-blur-md text-white/95 group-hover:bg-primary/40 group-hover:text-primary-foreground group-hover:scale-105 border border-white/20 group-hover:border-primary/70"
                       )}>
-                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6 relative z-10" />
                       </div>
-                      <span className="font-bold text-base sm:text-lg flex-1">{item.label}</span>
+                      <span className={cn(
+                        "font-bold text-base sm:text-lg flex-1 relative z-10",
+                        isActive ? "text-primary-foreground" : "text-white/95 group-hover:text-primary-foreground"
+                      )}>{item.label}</span>
                       {isActive && (
-                        <div className="w-2.5 h-2.5 rounded-full bg-gradient-primary animate-pulse flex-shrink-0 shadow-glow-primary"></div>
+                        <div className="w-2.5 h-2.5 rounded-full bg-primary-foreground animate-pulse flex-shrink-0 shadow-glow-primary relative z-10"></div>
                       )}
                     </div>
                     
-                    {/* Hover Gradient */}
-                    <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-15 rounded-xl transition-opacity duration-300"></div>
+                    {/* Hover Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 rounded-xl sm:rounded-2xl transition-opacity duration-300"></div>
                   </Button>
                 );
               })}
               
-              {/* Mobile CTA Button - Hire Me - Premium Design */}
+              {/* Mobile CTA Button - Hire Me - Premium Design with Enhanced Visibility */}
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="mt-4 sm:mt-6 w-full bg-gradient-primary hover:scale-[1.03] text-primary-foreground shadow-glow-primary rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 transition-all duration-300 hover:shadow-glow-secondary font-bold text-base sm:text-lg relative overflow-hidden group animate-fade-in-up border-2 border-primary/50"
+                className="mt-4 sm:mt-6 w-full hover:scale-[1.03] text-white shadow-glow-primary rounded-xl sm:rounded-2xl px-6 sm:px-8 py-4 sm:py-5 transition-all duration-300 hover:shadow-glow-secondary font-bold text-base sm:text-lg relative overflow-hidden group animate-fade-in-up border-2 border-primary/80 shadow-2xl"
                 style={{ animationDelay: `${navItems.length * 0.1}s` }}
               >
+                {/* Dark Background with Gradient - Enhanced */}
+                <div className="absolute inset-0 bg-gradient-primary opacity-100 rounded-xl sm:rounded-2xl"></div>
+                <div className="absolute inset-0 bg-black/30 opacity-100 rounded-xl sm:rounded-2xl group-hover:opacity-0 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-primary/90 opacity-100 rounded-xl sm:rounded-2xl"></div>
+                
                 <span className="relative z-10 flex items-center justify-center gap-3 sm:gap-4">
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
-                  Hire Me
-                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-180 transition-transform duration-500" />
+                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse text-white" />
+                  <span className="text-white font-bold">Hire Me</span>
+                  <Zap className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-180 transition-transform duration-500 text-white" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-ocean opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-ocean opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl"></div>
+                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-xl sm:rounded-2xl"></div>
               </Button>
             </nav>
           </div>
